@@ -23,19 +23,29 @@ pipenv sync
 ## Usage
 
 ```
-pipenv run ./es_migrate_documents.py \
-  --src-host <source host name>
-  --src-index <source index name>
-  --dst-host <destination host name>
-  --dst-index <destination index name>
+$ pipenv run ./es_migrate_documents.py --help
+usage: es_migrate_documents.py [-h] [--dry-run] [--src-host SRC_HOST]
+                               [--src-index SRC_INDEX] [--dst-host DST_HOST]
+                               [--dst-index DST_INDEX] [--scroll SCROLL]
+                               [--scroll-size SCROLL_SIZE]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --dry-run
+  --src-host SRC_HOST
+  --src-index SRC_INDEX
+  --dst-host DST_HOST
+  --dst-index DST_INDEX
+  --scroll SCROLL
+  --scroll-size SCROLL_SIZE
 ```
 
 ### ex
 
 ```
 pipenv run ./es_migrate_documents.py \
-  --src-host example-src-xxxxxxxxxxxxxxxxxxxxxxxx.ap-northeast-1.es.amazoneaws.com
-  --src-index example-src-test
-  --dst-host example-dst-yyyyyyyyyyyyyyyyyyyyyyyy.ap-northeast-1.es.amazoneaws.com
+  --src-host example-src-xxxxxxxxxxxxxxxxxxxxxxxx.ap-northeast-1.es.amazoneaws.com \
+  --src-index example-src-test \
+  --dst-host example-dst-yyyyyyyyyyyyyyyyyyyyyyyy.ap-northeast-1.es.amazoneaws.com \
   --dst-index example-dst-test
 ```
