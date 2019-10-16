@@ -47,7 +47,7 @@ def scan_search(ess_client, index, scroll, scroll_size):
 
 def scroll_search(ess_client: object, scroll_id: str, scroll: str):
     """
-    Description: 削除対象ドキュメント情報を取得する
+    Description: 対象ドキュメント情報を取得する
     """
 
     # Scroll API でドキュメントを取得
@@ -100,6 +100,10 @@ def main():
 
     src_es_client = ess_client(args.src_host)
     dst_es_client = ess_client(args.dst_host)
+
+    if args.dry_run:
+        logger.info("[ {} ] 接続確認ok".format(src_es_client.info()["cluster_name"]))
+        logger.info("[ {} ] 接続確認ok".format(dst_es_client.info()["cluster_name"]))
 
     scroll_id, total = scan_search(
         src_es_client, args.src_index, args.scroll, args.scroll_size
